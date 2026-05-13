@@ -1,0 +1,19 @@
+[Unit]
+Description=cbm — clipboard history daemon
+Documentation=file://%h/.local/share/cbm/README.md
+# Start after the display session is ready so arboard can open the display.
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/cbm daemon --max-entries 1000
+Restart=on-failure
+RestartSec=5
+
+# Log at info so new clipboard entries appear in `journalctl --user -u cbm -f`.
+# Change to `warn` once satisfied everything works.
+Environment=RUST_LOG=info
+
+[Install]
+WantedBy=graphical-session.target
