@@ -15,8 +15,7 @@ Supports **X11** and **Wayland** via [arboard](https://crates.io/crates/arboard)
 
 ```sh
 cargo build --release
-# Binary is at target/release/cbm
-cp target/release/cbm ~/.local/bin/
+install -m 755 target/release/cbm ~/.local/bin/
 ```
 
 > **Note**: `rusqlite` with `features = ["bundled"]` compiles SQLite statically,
@@ -43,7 +42,9 @@ cbm stop
 
 ```sh
 mkdir -p ~/.config/systemd/user
-cp systemd/cbm.service ~/.config/systemd/user/
+
+# Run from inside the project directory, or use the full path:
+cp ~/better_clipboard_project_v1/systemd/cbm.service ~/.config/systemd/user/
 
 systemctl --user daemon-reload
 systemctl --user enable --now cbm
