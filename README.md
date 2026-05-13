@@ -129,7 +129,3 @@ RUST_LOG=debug cbm daemon
 | `XDG_DATA_HOME` | `~/.local/share` | Database location |
 | `WAYLAND_DISPLAY` | *(set by compositor)* | Required on Wayland |
 | `DISPLAY` | *(set by X server)* | Required on X11 |
-
-## Implementation plan
-
-See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for the phased roadmap.
